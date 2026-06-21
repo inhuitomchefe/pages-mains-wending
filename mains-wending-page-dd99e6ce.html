@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问鼎娱乐 · 主题说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f1f3f4;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+      color: #1e2a32;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* header / hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.4rem 2rem 2.8rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e2e6ea;
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #121b22;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1rem;
+      color: #4b5a67;
+      max-width: 560px;
+      margin: 0 auto 0.5rem;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #eef1f5;
+      padding: 0.35rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #2d3e4f;
+      border: 1px solid #d8dee4;
+      margin-top: 0.6rem;
+    }
+
+    /* 卡片通用 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem 2rem;
+      border: 1px solid #e0e5ea;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+      color: #1b2935;
+      border-left: 4px solid #8898aa;
+      padding-left: 0.9rem;
+    }
+
+    .card p, .card li {
+      color: #2d3f4c;
+    }
+
+    .card ul, .card ol {
+      padding-left: 1.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .card li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* 亮点行内标记 */
+    .highlight-chip {
+      display: inline-block;
+      background: #f0f2f5;
+      border-radius: 40px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #1f3241;
+      border: 1px solid #d1d9e0;
+      margin-right: 0.2rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* 场景/使用建议双栏 */
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .two-col .card {
+      flex: 1 1 260px;
+    }
+
+    /* 提示块 */
+    .note-box {
+      background: #f7f9fb;
+      border-radius: 20px;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #d7dee5;
+      margin: 1.8rem 0 0.8rem;
+      font-size: 0.92rem;
+      color: #2c3e4d;
+    }
+
+    .note-box strong {
+      font-weight: 500;
+      color: #0b1a26;
+    }
+
+    /* 链接样式 */
+    .inline-link {
+      color: #1f4b6e;
+      text-decoration: none;
+      border-bottom: 1px solid #b9c9d8;
+      padding-bottom: 0.05rem;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1f4b6e;
+      color: #0b2a40;
+    }
+
+    /* faq 精简 */
+    .faq-item {
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #e9edf1;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #1b2b39;
+    }
+
+    .faq-a {
+      color: #3d535f;
+      font-size: 0.92rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dde2e8;
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #62707c;
+      text-align: center;
+      margin: 2.2rem 0 0.6rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.8rem; }
+      .hero { padding: 1.6rem 1.2rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .card { padding: 1.3rem; }
+      .two-col { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 摘要区域 -->
+  <div class="hero">
+    <h1>问鼎娱乐</h1>
+    <div class="subtitle">
+      从主题内容出发，梳理产品脉络、亮点与使用方向。一份克制的介绍，而非夸耀的宣言。
+    </div>
+    <div class="tagline">主题 · 产品 · 场景</div>
+  </div>
+
+  <!-- 介绍 + 特点 合并卡片（自然叙述） -->
+  <div class="card-grid">
+    <div class="card">
+      <h2>主题与产品脉络</h2>
+      <p>
+        “问鼎”一词本身带有探索与登临的隐喻。在娱乐产品的语境中，它指向一种持续的参与、对内容或互动的深入体验。
+        <a href="https://mains-wending.com" class="inline-link">问鼎娱乐</a> 所构建的并非短促的刺激，而是围绕特定主题展开的、有节奏的互动方式。
+        从界面到机制，设计上倾向于让使用者逐步理解规则，并在反复尝试中找到自己的节奏——不强调速成，也不刻意制造焦虑。
+      </p>
+      <p style="margin-top: 0.8rem;">
+        产品本身具备清晰的层次：引导阶段让新接触者快速建立认知，后续的进阶内容则留给愿意投入更多时间的参与者。
+        整体气质偏向沉稳，背景与交互反馈都经过收敛，避免不必要的视觉干扰。
+      </p>
+    </div>
+
+    <!-- 亮点 用卡片内列表展示 -->
+    <div class="card">
+      <h2>几个值得注意的亮点</h2>
+      <ul>
+        <li><span class="highlight-chip">节奏可控</span> 每次参与的耗时相对固定，便于融入日常间隙，不强制连续投入。</li>
+        <li><span class="highlight-chip">反馈清晰</span> 操作后的状态变化通过简洁的视觉提示传达，减少猜测成本。</li>
+        <li><span class="highlight-chip">主题贯通</span> 从命名到场景元素都与“登临·探索”保持隐含关联，而非拼贴符号。</li>
+        <li><span class="highlight-chip">克制的美学</span> 浅灰背景、细边框、低饱和色块，让注意力更自然地聚焦在内容本身。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 使用建议 + 场景 双栏 -->
+  <div class="two-col">
+    <div class="card">
+      <h2>使用建议</h2>
+      <p>
+        如果你是第一次接触，不妨先浏览主题说明板块，了解大致的脉络与术语。随后可以从最简单的模式开始，逐步尝试不同难度的内容。
+      </p>
+      <p style="margin-top: 0.6rem;">
+        对于已经熟悉基础操作的使用者，建议适当挑战进阶场景——这部分往往隐藏着更细致的反馈与变化。
+        每天留出 15–20 分钟连贯体验，比长时间断续使用的沉浸感更强。
+      </p>
+    </div>
+    <div class="card">
+      <h2>适用场景举例</h2>
+      <ul>
+        <li>午间休息、通勤途中 —— 节奏短平，易于中断与续接。</li>
+        <li>与朋友简单讨论策略 —— 规则透明，容易交流心得。</li>
+        <li>需要短暂脱离高密度信息流时 —— 视觉安静，没有弹窗或强提醒。</li>
+        <li>作为主题延伸的切入点 —— 可以顺带查阅相关背景内容。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 可信但克制的访问说明 + FAQ 摘要 -->
+  <div class="card">
+    <h2>访问说明 &amp; 常见疑问摘要</h2>
+    <p>
+      网站 <a href="https://mains-wending.com" class="inline-link">问鼎娱乐</a> 当前可直接通过主流浏览器访问，无需额外插件。
+      页面加载采用轻量化设计，移动端与桌面端布局均经过适配。内容及服务由运营方自行维护，不涉及第三方数据共享承诺。
+      所有功能均建立在用户自主操作的前提下，不收集超出必要范围的个人信息。
+    </p>
+    <hr>
+    <div class="faq-item">
+      <span class="faq-q">是否需要注册或付费？</span>
+      <div class="faq-a">目前基础体验部分无需注册即可使用。部分进阶功能或持续性服务可能有独立的规则，具体以页面实际提示为准。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">内容更新频率如何？</span>
+      <div class="faq-a">主题内容会按照一定周期进行补充与微调，不设固定发布日期，但每次调整都会在更新日志中简单说明。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">遇到问题应向哪里反馈？</span>
+      <div class="faq-a">目前主要通过网站内提供的联系渠道接收反馈。建议描述问题时附带操作步骤与浏览器版本，以便定位。</div>
+    </div>
+    <div style="margin-top: 0.8rem; font-size: 0.9rem; color: #4c606e;">
+      * 以上说明基于当前版本，后续如有调整请以实际页面为准。
+    </div>
+  </div>
+
+  <!-- 小提示块（自然收束） -->
+  <div class="note-box">
+    <strong>一点提示：</strong> 任何产品都有其适用边界。<a href="https://mains-wending.com" class="inline-link">问鼎娱乐</a> 所呈现的内容并不试图覆盖所有需求，
+    它更适合那些愿意花一点时间熟悉基调、不急于求成的参与者。如果你恰好属于这一类，或许会发现其中一些细节上的用心。
+  </div>
+
+  <div class="footer-note">
+    — 主题说明页 · 仅作介绍用途 —
+  </div>
+</div>
+</body>
+</html>
