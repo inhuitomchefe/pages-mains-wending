@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷速 · 稳定入口与页面说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f5f3f0;
+      color: #2c2a28;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: #1f1e1b;
+      color: #e2ddd6;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #b7a48b, transparent);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 350;
+      letter-spacing: 2px;
+      margin-bottom: 0.8rem;
+      color: #ede8e0;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #b5ada2;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .post-meta {
+      font-size: 0.9rem;
+      color: #8b8379;
+      border-bottom: 1px solid #d6d0c8;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .post-meta span {
+      background: #e7e2da;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #4d4842;
+    }
+
+    article p {
+      margin-bottom: 1.6rem;
+    }
+
+    article h2 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      margin: 2.2rem 0 1rem;
+      color: #2f2a24;
+      border-left: 4px solid #b0967c;
+      padding-left: 1rem;
+    }
+
+    /* 引用提示（blockquote 风格） */
+    .insight {
+      background: #eeebe6;
+      border-left: 5px solid #b0967c;
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+      color: #3f3a34;
+      font-style: normal;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .insight::before {
+      content: "✦ ";
+      color: #8a7b6a;
+      font-size: 1.1rem;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #8b6f4c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border 0.2s, color 0.2s;
+      font-weight: 450;
+    }
+
+    a:hover {
+      color: #5f4a30;
+      border-bottom-color: #8b6f4c;
+    }
+
+    /* 场景卡片 (轻量) */
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .scene-item {
+      background: #faf8f5;
+      border: 1px solid #ddd7ce;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      flex: 1 1 200px;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .scene-item:hover {
+      background: #f4efe9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .scene-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #3f382f;
+    }
+
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #605952;
+      margin-bottom: 0;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #faf8f5;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      margin: 2.8rem 0 1.5rem;
+      border: 1px solid #e2dbd1;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.2rem;
+      font-weight: 450;
+      margin-bottom: 1.2rem;
+      color: #2f2a24;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-top: 1.2rem;
+      color: #3f382f;
+    }
+
+    .faq-q:first-of-type {
+      margin-top: 0;
+    }
+
+    .faq-a {
+      color: #5f5951;
+      padding-left: 0.3rem;
+      margin-top: 0.2rem;
+    }
+
+    .visit-note {
+      text-align: right;
+      margin-top: 2.8rem;
+      font-size: 0.95rem;
+      color: #7a7268;
+      border-top: 1px solid #ddd7ce;
+      padding-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 3.5rem 1rem 3rem;
+      }
+      .content {
+        padding: 2rem 1.2rem 3rem;
+      }
+      .scene-grid {
+        flex-direction: column;
+      }
+      .faq-mini {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>雷速 · 安稳的起点</h1>
+    <p>一个朴实、直接的页面，聊聊关于入口和页面本来的样子。</p>
+  </header>
+
+  <main class="content">
+    <div class="post-meta">
+      <span>随记</span> · 写于一个安静的下午
+    </div>
+
+    <article>
+      <p>
+        最近常常想起一个词 ——「入口」。我们每天打开无数页面，点进无数链接，但很少停下来看看入口本身。
+        它应该是什么样？是喧闹的广告，还是干净的一条路？我想，后者更让人舒服。
+      </p>
+
+      <p>
+        如果你也在找一个不那么拥挤、不那么焦躁的地方，或许可以试试 <a href="https://portalapp-leisu.com">雷速</a>。
+        它不是一个花哨的名字，但页面打开的感觉很实在。没有弹窗追着你跑，也没有复杂的导航让你迷失。就是一块能安心停留的地方。
+      </p>
+
+      <h2>为什么需要稳定的入口</h2>
+      <p>
+        网络世界越来越快，但我们反而容易累。很多页面设计得像是要拉住你的衣角不让你走，每一秒都在争抢注意力。
+        而一个稳定的入口，就像一扇门，推开门，里面安安静静，你想做什么就做什么。雷速给我的感觉就是这样的门。
+      </p>
+
+      <p>
+        它不是那种“一步登天”的工具，也不承诺什么奇迹。它只是稳稳地在那里，把页面该有的信息摆好，把功能放在该在的位置。
+        你不需要重新学习怎么使用它，因为它尊重你对网页的直觉。
+      </p>
+
+      <div class="insight">
+        一个页面最好的说明，就是它本身。当你打开它，不用解释，你就能理解它想做什么。
+      </div>
+
+      <h2>几个日常场景</h2>
+      <p>以下是我觉得雷速比较自然的用法，不是什么惊天动地的功能，但胜在顺手：</p>
+
+      <div class="scene-grid">
+        <div class="scene-item">
+          <h3>快速查阅</h3>
+          <p>打开页面就能看到关键内容，不用翻来翻去找菜单。</p>
+        </div>
+        <div class="scene-item">
+          <h3>简单记录</h3>
+          <p>偶尔需要一个安静的地方放点笔记或提醒，页面本身不打扰你。</p>
+        </div>
+        <div class="scene-item">
+          <h3>日常使用</h3>
+          <p>把它当作一个常驻标签页，随时回来，随时继续。</p>
+        </div>
+      </div>
+
+      <p>
+        这些场景听起来很平淡，但说实话，大部分工具都做不到「平淡」——它们总想让你觉得刺激、紧迫、非做不可。
+        而雷速相反，它把平淡做成了质感。
+      </p>
+
+      <h2>几个你可能想问的</h2>
+
+      <div class="faq-mini">
+        <div class="faq-q">这个页面安全吗？</div>
+        <div class="faq-a">就是一个普通的信息页面，没有复杂脚本，也没有隐藏的追踪。打开看看就知道了。</div>
+
+        <div class="faq-q">需要注册或登录吗？</div>
+        <div class="faq-a">不需要。页面本身是公开的，直接访问就能看到全部内容。</div>
+
+        <div class="faq-q">雷速未来会变化吗？</div>
+        <div class="faq-a">任何页面都可能更新，但核心风格应该会保持简单稳定。</div>
+      </div>
+
+      <p>
+        写到最后，我想说的是：有时候我们需要的不是更多功能，而是一个不费力的入口。
+        如果你偶然路过这里，不妨记住 <a href="https://portalapp-leisu.com">雷速</a> 这个名字，也许有一天你会想找一个安静的地方待一会儿。
+      </p>
+    </article>
+
+    <div class="visit-note">
+      — 页面很轻，路也很直
+    </div>
+  </main>
+
+</body>
+</html>
